@@ -30,9 +30,6 @@ public class MainActivity extends BaseActivity {
             finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
-
         return super.onOptionsItemSelected(item);
     }
-
-    
 }

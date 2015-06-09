@@ -1,9 +1,11 @@
 package nl.hro.projectapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -52,6 +54,8 @@ public class BaseActivity extends ActionBarActivity implements GoogleApiClient.C
 
     @Override
     public void onConnected(Bundle bundle) {
+        Context context = getApplicationContext();
+        Toast.makeText(context, "verbonden", Toast.LENGTH_LONG);
     }
 
     @Override
