@@ -22,7 +22,6 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onConnected(Bundle bundle) {
-        // Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         this.finish();
