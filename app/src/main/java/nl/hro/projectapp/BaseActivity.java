@@ -3,6 +3,7 @@ package nl.hro.projectapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.plus.Plus;
+
+import nl.hro.projectapp.common.Entities.User;
 
 /**
  * Created by Lex Goudriaan on 20-5-2015.
@@ -19,11 +22,10 @@ public class BaseActivity extends ActionBarActivity implements GoogleApiClient.C
     private static final int RC_SIGN_IN = 0;
 
     /* Client used to interact with Google APIs. */
-    private GoogleApiClient mGoogleApiClient;
+    public GoogleApiClient mGoogleApiClient;
 
     private boolean mSignInClicked;
     private boolean mIntentInProgress;
-
 
     @Override
     protected void onStart() {
