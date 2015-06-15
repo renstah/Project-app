@@ -23,8 +23,8 @@ public class SpeetRestClient {
         this._context = context;
     }
 
-    //private static final String BASE_URL = "http://speet.hol.es/";
-    private static final String BASE_URL = "http://192.168.0.109/";
+    private static final String BASE_URL = "http://speet.hol.es/";
+    //private static final String BASE_URL = "http://192.168.0.109/";
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
