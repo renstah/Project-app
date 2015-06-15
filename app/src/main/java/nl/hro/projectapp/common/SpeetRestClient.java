@@ -41,12 +41,12 @@ public class SpeetRestClient {
     }
 
     private static Header[] getHeaders(){
-        ArrayList<org.apache.http.Header> headers = new ArrayList<>();
-
         //TODO headers toevoegen als ze beschikbaar zijn. deze worden teruggegeven in de response van de login
-        headers.add(new BasicHeader("X-API-TOKEN",""));
-        headers.add(new BasicHeader("X-API-CLIENT-ID",""));
+        Header[] headers = {
+                new BasicHeader("X-API-TOKEN",""),
+                new BasicHeader("X-API-CLIENT-ID","")
+        };
 
-        return (Header[]) headers.toArray();
+        return headers;
     }
 }
