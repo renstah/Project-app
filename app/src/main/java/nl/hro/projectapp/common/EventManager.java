@@ -1,5 +1,7 @@
 package nl.hro.projectapp.common;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -14,15 +16,12 @@ import nl.hro.projectapp.common.Entities.Event;
 /**
  * Created by Lex on 15-6-2015.
  */
-public class EventManager {
+public class EventManager extends BaseManager{
 
 
-    Gson gson;
-    public EventManager()
-    {
-        this.gson = new Gson();
+    public EventManager(Context context) {
+        super(context);
     }
-
 
     public void CreateEvent(Event event){
 
@@ -33,7 +32,7 @@ public class EventManager {
             e.printStackTrace();
         }
 
-        SpeetRestClient.post("event/create",null, entity, new JsonHttpResponseHandler() {
+        client.post("event/create",null, entity, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

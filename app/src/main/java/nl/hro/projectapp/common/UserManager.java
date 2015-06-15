@@ -27,18 +27,19 @@ import nl.hro.projectapp.common.Entities.User;
 /**
  * Created by Lex Goudriaan on 13-6-2015.
  */
-public class UserManager {
+public class UserManager extends BaseManager{
 
     private final String USERMANAGER = "UserManager";
     private final String USER = "user";
 
-    Gson gson;
     SharedPreferences sharedPref;
+
     public UserManager(Context context)
     {
-        this.gson = new Gson();
-        if (context != null)
-              this.sharedPref = context.getSharedPreferences(USERMANAGER,Context.MODE_PRIVATE);
+        super(context);
+        if (context != null) {
+            this.sharedPref = context.getSharedPreferences(USERMANAGER, Context.MODE_PRIVATE);
+        }
     }
 
     public void LoginOrSignUp(User user){
@@ -50,7 +51,7 @@ public class UserManager {
             e.printStackTrace();
         }
 
-        SpeetRestClient.post("user/create",null, entity, new JsonHttpResponseHandler() {
+        client.post("user/create",null, entity, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -77,7 +78,9 @@ public class UserManager {
     public User GetUser() {
         User user = null;
         try{
-            user = gson.fromJson(sharedPref.getString(USER, ""), User.class);
+            String userString = sharedPref.getString(USER, "");
+            if (!userString.equals(""))
+                user = gson.fromJson(userString, User.class);
         }
         catch (Exception e)
         {

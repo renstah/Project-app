@@ -34,7 +34,7 @@ public class LoginActivity extends BaseActivity {
             Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
 
             User user = new User(currentPerson.getDisplayName(),currentPerson.getId(),currentPerson.getGender());
-            UserManager userManager = new UserManager(this);
+            UserManager userManager = new UserManager(getApplicationContext());
             userManager.LoginOrSignUp(user);
         }
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

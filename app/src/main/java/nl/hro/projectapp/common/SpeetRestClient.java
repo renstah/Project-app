@@ -25,24 +25,24 @@ public class SpeetRestClient {
         this._context = context;
     }
 
-    private static final String BASE_URL = "http://speet.hol.es/";
+    private final String BASE_URL = "http://speet.hol.es/";
     //private static final String BASE_URL = "http://192.168.0.109/";
 
-    private static AsyncHttpClient client = new AsyncHttpClient();
+    private AsyncHttpClient client = new AsyncHttpClient();
 
-    public static void get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+    public void get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
         client.get(_context, getAbsoluteUrl(url),getHeaders(), params, responseHandler);
     }
 
-    public static void post(String url, RequestParams params, HttpEntity entity, AsyncHttpResponseHandler responseHandler) {
+    public void post(String url, RequestParams params, HttpEntity entity, AsyncHttpResponseHandler responseHandler) {
         client.post(_context, getAbsoluteUrl(url), getHeaders(), entity, "application/json", responseHandler);
     }
 
-    private static String getAbsoluteUrl(String relativeUrl) {
+    private String getAbsoluteUrl(String relativeUrl) {
         return BASE_URL + relativeUrl;
     }
 
-    private static Header[] getHeaders(){
+    private Header[] getHeaders(){
 
         User user = new UserManager(_context).GetUser();
 
