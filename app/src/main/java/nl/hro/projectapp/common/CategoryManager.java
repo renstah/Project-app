@@ -15,12 +15,14 @@ import nl.hro.projectapp.common.Entities.Category;
  * Created by Lex on 15-6-2015.
  */
 public class CategoryManager {
+
     public List<Category> GetCategories() {
         List<Category> result = new ArrayList<>();
 
         SpeetRestClient.get("/categories", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
                 super.onSuccess(statusCode, headers, response);
             }
 
@@ -32,4 +34,5 @@ public class CategoryManager {
 
         return result;
     }
+
 }

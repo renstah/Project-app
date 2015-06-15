@@ -29,16 +29,12 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onConnected(Bundle bundle) {
-        Toast.makeText(this, "apen", Toast.LENGTH_LONG);
 
         if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
             Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
-            String personName = currentPerson.getDisplayName();
-            Person.Image personPhoto = currentPerson.getImage();
-            String personGooglePlusProfile = currentPerson.getUrl();
 
             User user = new User(currentPerson.getDisplayName(),currentPerson.getId(),currentPerson.getGender());
-            UserManager userManager = new UserManager();
+            UserManager userManager = new UserManager(this);
             userManager.LoginOrSignUp(user);
         }
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

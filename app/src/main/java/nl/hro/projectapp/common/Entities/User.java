@@ -12,6 +12,8 @@ public class User {
     public String Social_Token;
     public int Gender;
 
+    public User(){}
+
     public User(String name, String social_token, int gender) {
         this.Name = name.trim();
         this.Social_Token = social_token;

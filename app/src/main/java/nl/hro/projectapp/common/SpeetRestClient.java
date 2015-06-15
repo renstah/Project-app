@@ -11,6 +11,8 @@ import org.apache.http.message.BasicHeader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import nl.hro.projectapp.common.Entities.User;
+
 /**
  * Created by Lex Goudriaan on 13-6-2015.
  */
@@ -41,12 +43,17 @@ public class SpeetRestClient {
     }
 
     private static Header[] getHeaders(){
-        //TODO headers toevoegen als ze beschikbaar zijn. deze worden teruggegeven in de response van de login
-        Header[] headers = {
-                new BasicHeader("X-API-TOKEN",""),
-                new BasicHeader("X-API-CLIENT-ID","")
-        };
 
-        return headers;
+        User user = new UserManager(_context).GetUser();
+
+        if (user != null) {
+            Header[] headers = {
+                    new BasicHeader("X-API-TOKEN", user.Api_Token),
+                    new BasicHeader("X-API-CLIENT-ID", user.UserID + "")
+            };
+            return headers;
+        }else{
+            return null;
+        }
     }
 }
