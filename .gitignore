@@ -5,6 +5,7 @@
 /build
 /captures
 *.iml
+/app/app.iml
 
 # Built application files
 *.apk
