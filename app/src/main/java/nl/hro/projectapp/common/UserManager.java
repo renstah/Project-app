@@ -13,6 +13,7 @@ import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.StringEntity;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -20,17 +21,25 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 
+import nl.hro.projectapp.R;
 import nl.hro.projectapp.common.Entities.User;
 
 /**
  * Created by Lex Goudriaan on 13-6-2015.
  */
-public class UserManager {
+public class UserManager extends BaseManager{
 
-    Gson gson;
-    public UserManager()
+    private final String USERMANAGER = "UserManager";
+    private final String USER = "user";
+
+    SharedPreferences sharedPref;
+
+    public UserManager(Context context)
     {
-        this.gson = new Gson();
+        super(context);
+        if (context != null) {
+            this.sharedPref = context.getSharedPreferences(USERMANAGER, Context.MODE_PRIVATE);
+        }
     }
 
     public void LoginOrSignUp(User user){
@@ -42,10 +51,19 @@ public class UserManager {
             e.printStackTrace();
         }
 
-        SpeetRestClient.post("user/create",null, entity, new JsonHttpResponseHandler() {
+        client.post("user/create",null, entity, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+
+                try {
+
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString(USER, response.getString(USER));
+                    editor.commit();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 //TODO response verwerken naar user data
                 super.onSuccess(statusCode, headers, response);
             }
@@ -55,5 +73,19 @@ public class UserManager {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
             }
         });
+    }
+
+    public User GetUser() {
+        User user = null;
+        try{
+            String userString = sharedPref.getString(USER, "");
+            if (!userString.equals(""))
+                user = gson.fromJson(userString, User.class);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return user;
     }
 }

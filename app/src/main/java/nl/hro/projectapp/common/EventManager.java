@@ -1,6 +1,7 @@
 package nl.hro.projectapp.common;
 
-import android.util.Log;
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -9,23 +10,18 @@ import org.apache.http.entity.StringEntity;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
 
 import nl.hro.projectapp.common.Entities.Event;
 
 /**
  * Created by Lex on 15-6-2015.
  */
-public class EventManager {
+public class EventManager extends BaseManager{
 
 
-    Gson gson;
-    public EventManager()
-    {
-        this.gson = new Gson();
+    public EventManager(Context context) {
+        super(context);
     }
-
 
     public void CreateEvent(Event event){
 
@@ -36,7 +32,7 @@ public class EventManager {
             e.printStackTrace();
         }
 
-        SpeetRestClient.post("event/create",null, entity, new JsonHttpResponseHandler() {
+        client.post("event/create",null, entity, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -49,31 +45,5 @@ public class EventManager {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
             }
         });
-    }
-
-    public List<Event> getEvents() {
-
-        List<Event> events = new ArrayList<Event>();
-
-        SpeetRestClient.get("/events", null, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
-
-                System.out.println(statusCode);
-                System.out.println(response);
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-
-                System.out.println(statusCode);
-                System.out.println(errorResponse);
-            }
-        });
-
-
-        return events;
     }
 }

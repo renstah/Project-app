@@ -6,7 +6,7 @@ import java.util.Date;
  * Created by Lex Goudriaan on 13-6-2015.
  */
 public class Event {
-    public int ID;
+    public int EventID;
     public String Name;
     public Date Date_Start;
     public Date Date_End;
