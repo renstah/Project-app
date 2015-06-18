@@ -2,6 +2,7 @@ package nl.hro.projectapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
@@ -10,7 +11,10 @@ import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 
 import nl.hro.projectapp.common.Entities.User;
+import nl.hro.projectapp.common.EventManager;
 import nl.hro.projectapp.common.UserManager;
+
+import java.util.List;
 
 public class LoginActivity extends BaseActivity {
 
@@ -18,6 +22,10 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        System.out.println("helloooooow");
+        EventManager feed = new EventManager();
+        List events = feed.getEvents();
+        System.out.println(events);
 
         findViewById(R.id.sign_in_button).setOnClickListener(new OnClickListener() {
             @Override

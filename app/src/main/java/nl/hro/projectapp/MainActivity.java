@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.TextView;
 
 
 public class MainActivity extends BaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks{
