@@ -11,6 +11,7 @@ import com.google.android.gms.plus.model.people.Person;
 
 import nl.hro.projectapp.common.Entities.User;
 import nl.hro.projectapp.common.UserManager;
+import nl.hro.projectapp.test.Test;
 
 public class LoginActivity extends BaseActivity {
 
@@ -40,5 +41,8 @@ public class LoginActivity extends BaseActivity {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         this.finish();
+
+        // testcode voor events starten na logon
+        Test.events( this.getApplicationContext() );
     }
 }

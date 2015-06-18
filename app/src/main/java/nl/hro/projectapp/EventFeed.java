@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 
 public class EventFeed extends android.support.v4.app.Fragment {
 
-    public EventFeed() {}
+    public EventFeed() {
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

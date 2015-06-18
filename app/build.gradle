@@ -28,5 +28,4 @@ dependencies {
     compile 'com.google.android.gms:play-services-nearby:7.3.0'
     compile 'com.loopj.android:android-async-http:1.4.5'
     compile 'com.google.code.gson:gson:1.7.2'
-
 }

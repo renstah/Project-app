@@ -14,5 +14,4 @@ public class Event {
     public double Longitude;
     public short Age_Min;
     public short Age_Max;
-
 }

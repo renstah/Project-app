@@ -28,4 +28,6 @@ public class EventFeedFragment extends android.support.v4.app.Fragment {
         List<Category> categories = categoryManager.GetCategories();
         return view;
     }
+
+
 }
