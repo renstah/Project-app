@@ -48,6 +48,6 @@ public class EventManager extends BaseManager{
     }
 
     public void getEvents(){
-        
+
     }
 }
