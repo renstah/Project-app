@@ -41,8 +41,5 @@ public class LoginActivity extends BaseActivity {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         this.finish();
-
-        // testcode voor events starten na logon
-        Test.events( this.getApplicationContext() );
     }
 }
