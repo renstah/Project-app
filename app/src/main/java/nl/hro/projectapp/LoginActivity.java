@@ -13,6 +13,7 @@ import com.google.android.gms.plus.model.people.Person;
 import nl.hro.projectapp.common.Entities.User;
 import nl.hro.projectapp.common.EventManager;
 import nl.hro.projectapp.common.UserManager;
+import nl.hro.projectapp.test.Test;
 
 import java.util.List;
 

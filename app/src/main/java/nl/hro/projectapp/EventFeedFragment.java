@@ -83,7 +83,11 @@ public class EventFeedFragment extends android.support.v4.app.Fragment {
         return view;
     }
 
+<<<<<<< HEAD
     private void getEvents() {
 
     }
+=======
+
+>>>>>>> develop
 }

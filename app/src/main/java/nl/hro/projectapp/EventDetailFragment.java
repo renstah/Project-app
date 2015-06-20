@@ -13,6 +13,7 @@ import nl.hro.projectapp.dummy.DummyContent;
 public class EventDetailFragment extends android.support.v4.app.Fragment {
 
     public EventDetailFragment() {
+
     }
 
 
