@@ -22,10 +22,6 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        System.out.println("helloooooow");
-        EventManager feed = new EventManager();
-        List events = feed.getEvents();
-        System.out.println(events);
 
         findViewById(R.id.sign_in_button).setOnClickListener(new OnClickListener() {
             @Override

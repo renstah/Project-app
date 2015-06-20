@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.TextView;
 
+import java.util.concurrent.CountDownLatch;
+
 
 public class MainActivity extends BaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks{
 
