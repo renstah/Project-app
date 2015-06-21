@@ -16,10 +16,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/text_event_name"
         android:textSize="20dp"
-        android:layout_alignBottom="@+id/editText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="false" />
+        android:layout_alignParentTop="false"
+        android:layout_alignBottom="@+id/input_event_name" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -32,10 +32,10 @@
         android:textSize="20dp"
         android:layout_alignParentRight="false"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/text_minumum_age"
-        android:layout_toEndOf="@+id/text_minumum_age"
+        android:layout_toEndOf="@+id/text_end_date"
         android:contentDescription="event name here"
-        android:editable="true" />
+        android:editable="true"
+        android:layout_toRightOf="@+id/text_end_date" />
 
     <TextView
         android:text="Minimum Age"
@@ -44,9 +44,12 @@
         android:id="@+id/text_minumum_age"
         android:textSize="20dp"
         android:layout_alignWithParentIfMissing="false"
-        android:layout_below="@+id/input_event_name"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/text_end_date"
+        android:layout_alignEnd="@+id/text_end_date"
+        android:layout_alignBottom="@+id/input_minimum_age"
+        android:layout_alignParentBottom="false" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -54,10 +57,11 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/input_minimum_age"
-        android:layout_alignBottom="@+id/text_minumum_age"
-        android:layout_toRightOf="@+id/input_start_date"
+        android:layout_below="@+id/input_event_name"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/input_start_time"
+        android:layout_toEndOf="@+id/input_start_time" />
 
     <TextView
         android:text="Start Date"
@@ -88,10 +92,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text_end_date"
         android:textSize="20dp"
-        android:layout_alignWithParentIfMissing="false"
-        android:layout_below="@+id/input_start_date"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/input_start_date" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -100,8 +101,8 @@
         android:checked="true"
         android:text="One Day event"
         android:layout_alignTop="@+id/text_end_date"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2"
+        android:layout_alignRight="@+id/input_minimum_age"
+        android:layout_alignEnd="@+id/input_minimum_age"
         android:layout_alignBottom="@+id/text_end_date" />
 
 
@@ -157,6 +158,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/input_end_time"
         android:text="submit"
         android:onClick="submitNewEvent"
         />

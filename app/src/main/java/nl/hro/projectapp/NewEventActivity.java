@@ -61,7 +61,10 @@ public class NewEventActivity extends ActionBarActivity {
         DatePicker start_date = (DatePicker) findViewById(R.id.input_start_date);
         // TODO end date
 
-        // get
+        //  TODO datum en tijd parsen in datetime
+
+        // minimum age
+        String minimum_age = (String) findViewById(R.id.input_minimum_age).toString();
 
 
     }
