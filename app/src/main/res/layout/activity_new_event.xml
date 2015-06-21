@@ -49,7 +49,9 @@
         android:layout_alignRight="@+id/text_end_date"
         android:layout_alignEnd="@+id/text_end_date"
         android:layout_alignBottom="@+id/input_minimum_age"
-        android:layout_alignParentBottom="false" />
+        android:layout_alignParentBottom="false"
+        android:numeric="integer"
+        android:inputType="number" />
 
     <EditText
         android:layout_width="wrap_content"

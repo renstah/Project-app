@@ -4,8 +4,11 @@ import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -33,38 +36,57 @@ public class NewEventActivity extends ActionBarActivity {
         end_time.setIs24HourView(Boolean.TRUE);
 
 
-        Calendar cal = Calendar.getInstance();
-        cal.set(2015, 6, 14, 15, 0);
+    }
 
+    public void submitNewEvent(View v){
+        // get project name
+        EditText et = (EditText) findViewById(R.id.input_event_name);
+        String event_name = et.getText().toString();
+
+        // get time fields
+        TimePicker start_time = (TimePicker) findViewById(R.id.input_start_time);
+
+        int start_hour = start_time.getCurrentHour();
+        int start_minute = start_time.getCurrentMinute();
+
+        TimePicker end_time = (TimePicker) findViewById(R.id.input_end_time);
+        int end_hour = end_time.getCurrentHour();
+        int end_minute = end_time.getCurrentMinute();
+
+        DatePicker start_date = (DatePicker) findViewById(R.id.input_start_date);
+        int start_day = start_date.getDayOfMonth();
+        int start_month = start_date.getMonth();
+        int start_year = start_date.getYear();
+
+        // TODO end date
+
+
+        //  TODO datum en tijd parsen in datetime
+        Calendar start_cal = Calendar.getInstance();
+        start_cal.set( start_year, start_month, start_day, start_hour, start_minute);
+
+
+        // minimum age
+
+        het = (EditText) findViewById(R.id.input_minimum_age);
+        Short minimum_age = Short.parseShort( et.getText().toString() );
+        //Context context = v.getContext();
+        //Toast.makeText(context, minimum_age, Toast.LENGTH_LONG).show();
+
+
+        // create the event
         Event event = new Event();
-        event.Name = "Trail";
-        event.Date_Start = cal.getTime();
+        event.Name = event_name;
+        event.Date_Start = start_cal.getTime();
         event.Date_End = event.Date_Start;
         event.Latitude = 51.935261;
         event.Longitude = 4.358891;
-        event.Age_Min = 12;
-
+        event.Age_Min = (short) minimum_age;
 
         // event manager
         EventManager evmgr = new EventManager(getApplicationContext());
 
-        // evmgr.CreateEvent(event); // verstuur naar db?
-    }
-
-    public void submitNewEvent(){
-        // get project name
-        String event_name = (String) findViewById(R.id.input_event_name).toString();
-
-        // get time fields
-        TimePicker start_time = (TimePicker) findViewById(R.id.input_start_time);
-        TimePicker end_time = (TimePicker) findViewById(R.id.input_end_time);
-        DatePicker start_date = (DatePicker) findViewById(R.id.input_start_date);
-        // TODO end date
-
-        //  TODO datum en tijd parsen in datetime
-
-        // minimum age
-        String minimum_age = (String) findViewById(R.id.input_minimum_age).toString();
+        evmgr.CreateEvent(event); // verstuur naar db?
 
 
     }

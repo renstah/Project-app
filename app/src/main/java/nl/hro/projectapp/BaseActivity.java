@@ -56,8 +56,7 @@ public class BaseActivity extends ActionBarActivity implements GoogleApiClient.C
 
     @Override
     public void onConnected(Bundle bundle) {
-        Context context = getApplicationContext();
-        Toast.makeText(context, "verbonden", Toast.LENGTH_LONG);
+
     }
 
     @Override
