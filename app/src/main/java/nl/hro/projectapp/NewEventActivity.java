@@ -17,13 +17,11 @@ public class NewEventActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_event);
 
-
         Calendar cal = Calendar.getInstance();
         cal.set(2015, 6, 14, 15, 0);
 
         Event event = new Event();
         event.Name = "Trail";
-        event.Date_Start = cal.getTime();
         event.Date_Start = cal.getTime();
         event.Date_End = event.Date_Start;
         event.Latitude = 51.935261;
@@ -32,7 +30,6 @@ public class NewEventActivity extends ActionBarActivity {
 
         // event manager
         EventManager evmgr = new EventManager(getApplicationContext());
-
 
         evmgr.CreateEvent(event); // verstuur naar db?
     }

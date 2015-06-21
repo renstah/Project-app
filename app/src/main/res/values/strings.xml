@@ -23,7 +23,7 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_new_event">NewEventActivity</string>
+    <string name="title_activity_new_event">Add a new event</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
