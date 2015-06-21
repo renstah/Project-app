@@ -42,6 +42,6 @@ public class NewEventActivity extends ActionBarActivity {
         // event manager
         EventManager evmgr = new EventManager(getApplicationContext());
 
-        evmgr.CreateEvent(event); // verstuur naar db?
+        // evmgr.CreateEvent(event); // verstuur naar db?
     }
 }
