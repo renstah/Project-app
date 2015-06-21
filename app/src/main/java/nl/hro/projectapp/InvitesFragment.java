@@ -1,9 +1,11 @@
 package nl.hro.projectapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TimePicker;
 
 public class InvitesFragment extends android.support.v4.app.Fragment {
 
@@ -12,6 +14,7 @@ public class InvitesFragment extends android.support.v4.app.Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 

@@ -1,12 +1,170 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:is24HourView="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="nl.hro.projectapp.NewEventActivity">
+    tools:context="nl.hro.projectapp.NewEventActivity"
+    android:contentDescription="input form to create a new edvent"
+    android:nestedScrollingEnabled="true">
 
-    <TextView android:text="new event scherm" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView android:text="Event Name" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_event_name"
+        android:textSize="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignBottom="@+id/input_event_name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/input_event_name"
+        android:inputType="text"
+        android:layout_alignParentTop="true"
+        android:textColor="#6635E6"
+        android:textIsSelectable="true"
+        android:textSize="20dp"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/text_end_date"
+        android:contentDescription="event name here"
+        android:editable="true"
+        android:layout_toRightOf="@+id/text_end_date" />
+
+    <TextView
+        android:text="Minimum Age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_minumum_age"
+        android:textSize="20dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/text_end_date"
+        android:layout_alignEnd="@+id/text_end_date"
+        android:layout_alignBottom="@+id/input_minimum_age"
+        android:layout_alignParentBottom="false"
+        android:numeric="integer"
+        android:inputType="number" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/input_minimum_age"
+        android:layout_below="@+id/input_event_name"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/input_start_time"
+        android:layout_toEndOf="@+id/input_start_time" />
+
+    <TextView
+        android:text="Start Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_start_date"
+        android:textSize="22dp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/text_minumum_age"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/input_start_date"
+        android:minDate="System.currentTimeMillis() - 1000"
+        android:spinnersShown="true"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:layout_below="@+id/text_start_date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Amount of days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_end_date"
+        android:textSize="20dp"
+        android:layout_below="@+id/input_start_date" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/check_end_date"
+        android:checked="true"
+        android:text="One Day event"
+        android:layout_alignTop="@+id/text_end_date"
+        android:layout_alignRight="@+id/input_minimum_age"
+        android:layout_alignEnd="@+id/input_minimum_age"
+        android:layout_alignBottom="@+id/text_end_date" />
+
+
+    <TextView
+        android:text="Start Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_start_time"
+        android:textSize="20dp"
+        android:layout_below="@+id/check_end_date"
+       />
+
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_start_time"
+        android:id="@+id/input_start_time"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nestedScrollingEnabled="true"
+        android:timePickerMode="spinner">
+
+
+    </TimePicker>
+
+
+    <TextView
+        android:text="End Time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_end_time"
+        android:textSize="20dp"
+        android:layout_below="@+id/input_start_time"
+        />
+
+
+    <TimePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_end_time"
+        android:id="@+id/input_end_time"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:nestedScrollingEnabled="true"
+        android:timePickerMode="spinner"
+        >
+
+
+
+    </TimePicker>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_end_time"
+        android:text="submit"
+        android:onClick="submitNewEvent"
+        />
+
 
 </RelativeLayout>
+</ScrollView>

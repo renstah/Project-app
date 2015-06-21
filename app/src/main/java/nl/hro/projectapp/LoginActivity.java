@@ -15,8 +15,6 @@ import nl.hro.projectapp.common.EventManager;
 import nl.hro.projectapp.common.UserManager;
 import nl.hro.projectapp.test.Test;
 
-import java.util.List;
-
 public class LoginActivity extends BaseActivity {
 
     @Override
