@@ -1,6 +1,7 @@
 package nl.hro.projectapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -39,6 +41,8 @@ public class EventFeedFragment extends android.support.v4.app.Fragment {
 
     Context context;
 
+    ListView listView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,22 @@ public class EventFeedFragment extends android.support.v4.app.Fragment {
         context = this.getActivity();
 
         //adapter = new ArrayAdapter<String>(context, R.layout.layout_event_list, R.id.firstLine, eventNames);
+
+        listView = (ListView) view.findViewById(R.id.listView);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView adapterView, View view, int position, long id) {
+                SimpleAdapter adapter = (SimpleAdapter) adapterView.getAdapter();
+
+                Object item = adapter.getItem(position);
+                Intent intent = new Intent(context, EventDetailActivity.class);
+
+                intent.putExtra("id", ""+position);
+
+                startActivity(intent);
+            }
+        });
 
         eventManager.client.get("/events", null, new JsonHttpResponseHandler() {
 
@@ -127,7 +147,6 @@ public class EventFeedFragment extends android.support.v4.app.Fragment {
             String[] from = new String[]{"EventID", "City", "Date_Start", "Street", "Name"};
             int[] to = new int[]{R.id.firstLine, R.id.secondLine, R.id.thirdLine, R.id.fourthLine, R.id.fifthLine};
 
-            ListView listView = (ListView) view.findViewById(R.id.listView);
             SimpleAdapter eventAdapter = new SimpleAdapter(context, results, R.layout.layout_event_list, from, to);
             listView.setAdapter(eventAdapter);
         }
