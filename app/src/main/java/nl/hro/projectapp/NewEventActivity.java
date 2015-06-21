@@ -1,7 +1,9 @@
 package nl.hro.projectapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.TimePicker;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -16,6 +18,15 @@ public class NewEventActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_event);
+
+        // get time fields
+        TimePicker start_time = (TimePicker) findViewById(R.id.input_start_time);
+        TimePicker end_time = (TimePicker) findViewById(R.id.input_end_time);
+
+        // set to 24h format
+        start_time.setIs24HourView(Boolean.TRUE);
+        end_time.setIs24HourView(Boolean.TRUE);
+
 
         Calendar cal = Calendar.getInstance();
         cal.set(2015, 6, 14, 15, 0);
