@@ -39,6 +39,8 @@ public class NewEventActivity extends ActionBarActivity {
     }
 
     public void submitNewEvent(View v){
+        Boolean submit_status = Boolean.FALSE;
+
         // get project name
         EditText et = (EditText) findViewById(R.id.input_event_name);
         String event_name = et.getText().toString();
@@ -68,7 +70,7 @@ public class NewEventActivity extends ActionBarActivity {
 
         // minimum age
 
-        het = (EditText) findViewById(R.id.input_minimum_age);
+        et = (EditText) findViewById(R.id.input_minimum_age);
         Short minimum_age = Short.parseShort( et.getText().toString() );
         //Context context = v.getContext();
         //Toast.makeText(context, minimum_age, Toast.LENGTH_LONG).show();
@@ -84,9 +86,14 @@ public class NewEventActivity extends ActionBarActivity {
         event.Age_Min = (short) minimum_age;
 
         // event manager
-        EventManager evmgr = new EventManager(getApplicationContext());
+        EventManager evmgr = new EventManager(v.getContext() );
 
-        evmgr.CreateEvent(event); // verstuur naar db?
+        evmgr.CreateEvent(event); // verstuur naar db
+
+        Context context = v.getContext();
+        Toast.makeText(context, "Sucessfully created event "+event_name, Toast.LENGTH_SHORT).show();
+        // terug naawr vorig scherm
+        finish();
 
 
     }

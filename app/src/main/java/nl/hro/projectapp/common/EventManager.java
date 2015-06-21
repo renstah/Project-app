@@ -18,13 +18,11 @@ import nl.hro.projectapp.common.Entities.Event;
  */
 public class EventManager extends BaseManager{
 
-
     public EventManager(Context context) {
         super(context);
     }
 
-    public void CreateEvent(Event event){
-
+    public void CreateEvent(Event event)  {
         StringEntity entity = null;
         try {
             entity = new StringEntity(gson.toJson(event));
@@ -44,10 +42,13 @@ public class EventManager extends BaseManager{
                 int a = statusCode;
                 super.onFailure(statusCode, headers, throwable, errorResponse);
             }
+
         });
+
     }
 
     public void getEvents(){
 
     }
+
 }
