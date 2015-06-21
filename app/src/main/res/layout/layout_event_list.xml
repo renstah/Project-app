@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="?android:attr/listPreferredItemHeight"
+                android:padding="6dip"
+                android:id="@+id/eventRow" >
+
+    <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_alignParentTop="true"
+            >
+        <TextView
+                android:id="@+id/firstLine"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignWithParentIfMissing="true"
+                android:gravity="center_vertical"
+                android:text="Example application"
+                android:textColor="#000"
+                android:textSize="0sp" android:layout_row="4" android:layout_column="4"/>
+            <TextView
+                android:id="@+id/thirdLine"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="false"
+                android:layout_alignWithParentIfMissing="true"
+                android:gravity="center_vertical"
+                android:text="Datum"
+                android:textColor="#000"
+                android:textSize="16sp" android:layout_toLeftOf="@+id/fourthLine"
+                android:layout_toStartOf="@+id/fourthLine" android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true" android:layout_row="0" android:layout_column="3"/>
+            <TextView
+                android:id="@+id/fourthLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignWithParentIfMissing="true"
+                android:gravity="center_vertical"
+                android:text="Straat"
+                android:textColor="#000"
+                android:textSize="16sp" android:layout_below="@+id/thirdLine" android:layout_alignLeft="@+id/fifthLine"
+                android:layout_alignStart="@+id/fifthLine" android:layout_row="1" android:layout_column="0"/>
+            <TextView
+                    android:id="@+id/secondLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dip"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:text="Stad"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    android:layout_alignParentBottom="false" android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" android:layout_toLeftOf="@+id/fourthLine"
+                    android:layout_toStartOf="@+id/fourthLine" android:layout_alignParentTop="true" android:layout_row="1"
+                    android:layout_column="3"/>
+            <TextView
+                android:id="@+id/fifthLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignWithParentIfMissing="true"
+                android:gravity="center_vertical"
+                android:text="Naam"
+                android:textColor="#000"
+                android:textSize="16sp" android:layout_row="0" android:layout_column="0"/>
+    </GridLayout>
+
+</RelativeLayout>
